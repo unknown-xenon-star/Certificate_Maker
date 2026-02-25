@@ -87,83 +87,151 @@ button:hover {
 
 .certificate {
     width: min(1120px, 100%);
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 14px 34px rgba(17, 24, 39, 0.16);
-    padding: 16px;
+    background: radial-gradient(circle at 20% 10%, #f6f9ff 0%, #eef3ff 40%, #e7eefc 100%);
+    border-radius: 16px;
+    box-shadow: 0 20px 45px rgba(17, 24, 39, 0.16);
+    padding: 18px;
+    position: relative;
+    overflow: hidden;
+}
+
+.certificate::before,
+.certificate::after {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.18), rgba(212, 175, 55, 0));
+    pointer-events: none;
+}
+
+.certificate::before {
+    top: -110px;
+    left: -90px;
+}
+
+.certificate::after {
+    right: -90px;
+    bottom: -130px;
 }
 
 .certificate-border {
-    border: 10px solid #1f3f75;
-    outline: 2px solid #d4af37;
-    outline-offset: -13px;
+    border: 7px solid #1f3f75;
+    border-radius: 10px;
+    background:
+        linear-gradient(transparent, transparent) padding-box,
+        repeating-linear-gradient(
+            45deg,
+            rgba(212, 175, 55, 0.2) 0 8px,
+            rgba(212, 175, 55, 0.07) 8px 16px
+        ) border-box;
+    box-shadow: inset 0 0 0 2px #d4af37, inset 0 0 0 14px #fdfcf8;
     min-height: 760px;
-    padding: 58px 70px;
+    padding: 58px 70px 44px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     gap: 18px;
+    position: relative;
+}
+
+.certificate-border::before,
+.certificate-border::after {
+    content: "";
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    border: 2px solid #d4af37;
+    pointer-events: none;
+}
+
+.certificate-border::before {
+    top: 16px;
+    left: 16px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.certificate-border::after {
+    right: 16px;
+    bottom: 16px;
+    border-left: none;
+    border-top: none;
 }
 
 .certificate h1 {
     font-family: "Allura", cursive;
-    font-size: clamp(2.4rem, 4vw, 3.4rem);
+    font-size: clamp(2.7rem, 4.5vw, 3.9rem);
     line-height: 0.95;
     font-weight: 400;
-    color: #0f172a;
+    color: #10274a;
     margin: -2px 0 4px;
+    text-shadow: 0 6px 18px rgba(16, 39, 74, 0.14);
 }
 
 .certificate-type {
     text-transform: uppercase;
-    letter-spacing: 3.5px;
-    font-size: 0.8rem;
-    color: #3f495d;
+    letter-spacing: 4.5px;
+    font-size: 0.78rem;
+    color: #2f3f5f;
     margin-bottom: 0;
+    background: rgba(31, 63, 117, 0.08);
+    border: 1px solid rgba(31, 63, 117, 0.22);
+    padding: 7px 13px;
+    border-radius: 999px;
 }
 
 .brand-block {
     display: flex;
     flex-direction: row;
     align-items: center;
+    flex-wrap: nowrap;
     gap: 10px;
     margin-bottom: 8px;
     justify-content: center;
 }
 
 .brand-logo {
-    width: 130px;
+    width: 118px;
     height: auto;
     object-fit: contain;
     order: 1;
+    filter: drop-shadow(0 5px 8px rgba(15, 23, 42, 0.2));
 }
 
 .brand-name {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 1.05rem;
+    font-family: "Times New Roman", serif;
+    font-size: 1.03rem;
     font-weight: 700;
-    letter-spacing: 0.6px;
+    letter-spacing: 0.8px;
     max-width: 760px;
+    white-space: nowrap;
     text-align: center;
     color: #13203a;
     order: 2;
+    padding: 8px 14px;
+    background: linear-gradient(90deg, rgba(212, 175, 55, 0.15), rgba(31, 63, 117, 0.08));
+    border-radius: 8px;
 }
 
 .certificate p {
     font-size: clamp(1.1rem, 2vw, 1.45rem);
-    color: #374151;
+    color: #2f3f56;
 }
 
 #cert-name,
 #cert-course {
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: "Times New Roman", serif;
     color: #0f2e61;
     font-size: clamp(2rem, 3.4vw, 2.8rem);
     text-decoration: underline;
     text-underline-offset: 8px;
-    text-decoration-thickness: 2px;
-    padding: 2px 16px;
+    text-decoration-thickness: 1.5px;
+    padding: 4px 18px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.25), rgba(212, 175, 55, 0.08));
+    border-radius: 10px;
 }
 
 .signature-row {
@@ -176,8 +244,12 @@ button:hover {
 }
 
 .signature-block {
-    width: 230px;
+    width: 250px;
     text-align: center;
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(31, 63, 117, 0.18);
+    border-radius: 8px;
+    padding: 10px 12px;
 }
 
 .signature-block .dummy-signature {
@@ -191,7 +263,7 @@ button:hover {
 .signature-line {
     display: block;
     width: 100%;
-    border-top: 2px solid #4b5563;
+    border-top: 2px solid #334155;
     margin-bottom: 6px;
 }
 
@@ -203,21 +275,34 @@ button:hover {
 @media (max-width: 768px) {
     .certificate-border {
         min-height: 660px;
-        padding: 34px 20px;
+        padding: 34px 18px 28px;
         gap: 14px;
     }
 
+    .certificate-border::before,
+    .certificate-border::after {
+        width: 70px;
+        height: 70px;
+    }
+
+    .certificate-type {
+        letter-spacing: 2.4px;
+        font-size: 0.68rem;
+        padding: 6px 10px;
+    }
+
     .brand-block {
-        flex-direction: column;
-        gap: 8px;
+        gap: 6px;
     }
 
     .brand-logo {
-        width: 100px;
+        width: 78px;
     }
 
     .brand-name {
-        font-size: 0.88rem;
+        font-size: 0.61rem;
+        letter-spacing: 0.2px;
+        padding: 5px 8px;
     }
 
     .signature-row {
