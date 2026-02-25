@@ -35,12 +35,26 @@ function downloadCertificateinPDF() {
 
     const certificate = document.getElementById("certificate");
 
-    html2canvas(certificate).then((canvas) => {
+    html2canvas(certificate, {
+        useCORS: true,
+        backgroundColor: "#ffffff",
+        scale: 2
+    }).then((canvas) => {
         const imgData = canvas.toDataURL("image/png");
-
         const pdf = new jsPDF("landscape", "mm", "a4");
+        const pageWidth = pdf.internal.pageSize.getWidth();
+        const pageHeight = pdf.internal.pageSize.getHeight();
 
-        pdf.addImage(imgData, "PNG", 10, 10, 277, 190);
+        const imgWidth = canvas.width;
+        const imgHeight = canvas.height;
+        const ratio = Math.min(pageWidth / imgWidth, pageHeight / imgHeight);
+
+        const renderWidth = imgWidth * ratio;
+        const renderHeight = imgHeight * ratio;
+        const x = (pageWidth - renderWidth) / 2;
+        const y = (pageHeight - renderHeight) / 2;
+
+        pdf.addImage(imgData, "PNG", x, y, renderWidth, renderHeight);
 
         pdf.save("certificate.pdf");
     });
