@@ -1,11 +1,38 @@
 function generateCertificate() {
     const name = document.getElementById("name").value.trim();
     const course = document.getElementById("course").value.trim();
+    const issueDate = document.getElementById("issue-date").value;
 
     document.getElementById("cert-name").innerText = name || "Your Name";
     document.getElementById("cert-course").innerText = course || "Course Name";
+    document.getElementById("cert-date").innerText = formatCertificateDate(issueDate);
 
 }
+
+function formatCertificateDate(value) {
+    if (!value) {
+        return "Date";
+    }
+
+    const [year, month, day] = value.split("-");
+    if (!year || !month || !day) {
+        return "Date";
+    }
+
+    const date = new Date(Number(year), Number(month) - 1, Number(day));
+    return date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+    });
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+    const issueDateInput = document.getElementById("issue-date");
+    const today = new Date().toISOString().split("T")[0];
+    issueDateInput.value = today;
+    document.getElementById("cert-date").innerText = formatCertificateDate(today);
+});
 
 function downloadCertificate() {
     const certificate = document.getElementById("certificate");

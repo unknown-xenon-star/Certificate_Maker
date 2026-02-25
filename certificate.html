@@ -16,6 +16,7 @@
             <div class="form-section">
                 <input type="text" id="name" placeholder="Enter Student Name" required/>
                 <input type="text" id="course" placeholder="Enter Course Name" required/>
+                <input type="date" id="issue-date" aria-label="Select Certificate Date"/>
                 <button onclick="generateCertificate()">Generate Certificate</button>
                 <button onclick="downloadCertificate()">Download PNG</button>
                 <button onclick="downloadCertificateinPDF()">Download PDF</button>
@@ -35,12 +36,13 @@
                     <h3 id="cert-course">Course Name</h3>
                     <div class="signature-row">
                         <div class="signature-block">
+                            <p class="dummy-signature" id="cert-signature">A. Sharma</p>
                             <span class="signature-line"></span>
                             <p>Authorized Signature</p>
                         </div>
                         <div class="signature-block">
                             <span class="signature-line"></span>
-                            <p>Date</p>
+                            <p id="cert-date">Date</p>
                         </div>
                     </div>
                 </div>

@@ -108,10 +108,11 @@ button:hover {
 
 .certificate h1 {
     font-family: "Allura", cursive;
-    font-size: clamp(3rem, 5vw, 4.4rem);
-    line-height: 1;
+    font-size: clamp(2.4rem, 4vw, 3.4rem);
+    line-height: 0.95;
     font-weight: 400;
     color: #0f172a;
+    margin: -2px 0 4px;
 }
 
 .certificate-type {
@@ -119,21 +120,23 @@ button:hover {
     letter-spacing: 3.5px;
     font-size: 0.8rem;
     color: #3f495d;
-    margin-bottom: -4px;
+    margin-bottom: 0;
 }
 
 .brand-block {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     gap: 10px;
     margin-bottom: 8px;
+    justify-content: center;
 }
 
 .brand-logo {
     width: 130px;
     height: auto;
     object-fit: contain;
+    order: 1;
 }
 
 .brand-name {
@@ -144,6 +147,7 @@ button:hover {
     max-width: 760px;
     text-align: center;
     color: #13203a;
+    order: 2;
 }
 
 .certificate p {
@@ -176,6 +180,14 @@ button:hover {
     text-align: center;
 }
 
+.signature-block .dummy-signature {
+    font-family: "Allura", cursive;
+    font-size: 2.1rem;
+    color: #10284f;
+    line-height: 0.9;
+    margin-bottom: 2px;
+}
+
 .signature-line {
     display: block;
     width: 100%;
@@ -193,6 +205,11 @@ button:hover {
         min-height: 660px;
         padding: 34px 20px;
         gap: 14px;
+    }
+
+    .brand-block {
+        flex-direction: column;
+        gap: 8px;
     }
 
     .brand-logo {
