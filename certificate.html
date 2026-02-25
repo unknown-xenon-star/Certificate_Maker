@@ -19,17 +19,17 @@
                 <input type="text" id="name" placeholder="Enter Student Name" required/>
                 <input type="text" id="course" placeholder="Enter Course Name" required/>
                 <button onclick="generateCertificate()">Generate Certificate</button>
-                <button onclick="downloadCertificate()">DownloadPng</button>
-                <button onclick="downloadCertificateinPDF()">DownloadPDF</button>
+                <button onclick="downloadCertificate()">Download PNG</button>
+                <button onclick="downloadCertificateinPDF()">Download PDF</button>
             </div>
             
             <div class="certificate" id="certificate">
-                <div><img src="./Maulana-Azad-National-Institute-of-Technology-Logo.png"></div>
+                <div><img src="./asserts/MANIT_PNG_LOGO2.png" alt="MANIT Logo"></div>
                 <h1>Certificate of completion</h1>
                 <h3 class="cursive">MAULANA AZAD NATIONAL INSTITUTE OF TECHNOLOGY</h3>
                 <p>This is to certify that</p>
                 <h2 id="cert-name">Your Name</h2>
-                <p>has succesfully completed</p>
+                <p>has successfully completed</p>
                 <h3 id="cert-course">Course Name</h3>
                 <br>
                 <br>
@@ -40,7 +40,7 @@
     </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="./jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

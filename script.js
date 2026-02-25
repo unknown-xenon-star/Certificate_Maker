@@ -1,18 +1,18 @@
 function generateCertificate() {
-    let name = document.getElementById("name").value;
-    let course = document.getElementById("course").value;
+    const name = document.getElementById("name").value.trim();
+    const course = document.getElementById("course").value.trim();
 
-    document.getElementById("cert-name").innerText = name;
-    document.getElementById("cert-course").innerText = course;
+    document.getElementById("cert-name").innerText = name || "Your Name";
+    document.getElementById("cert-course").innerText = course || "Course Name";
 
 }
 
 function downloadCertificate() {
-    let certicate = document.getElementById("certificate");
+    const certificate = document.getElementById("certificate");
     
-    html2canvas(certicate, {
+    html2canvas(certificate, {
         useCORS: true,
-        backgroundColor: #ffffff,
+        backgroundColor: "#ffffff",
         scale: 2
     }).then((canvas) => {
         const image = canvas.toDataURL("image/png");
@@ -33,12 +33,12 @@ function downloadCertificate() {
 function downloadCertificateinPDF() {
     const { jsPDF } = window.jspdf;
 
-    let certicate = document.getElementById("certificate");
+    const certificate = document.getElementById("certificate");
 
-    html2canvas(certicate).then((canvas) => {
-        let imgData = canvas.toDataURL("image/png");
+    html2canvas(certificate).then((canvas) => {
+        const imgData = canvas.toDataURL("image/png");
 
-        let pdf = new jsPDF("landscape", "mm", "a4");
+        const pdf = new jsPDF("landscape", "mm", "a4");
 
         pdf.addImage(imgData, "PNG", 10, 10, 277, 190);
 
